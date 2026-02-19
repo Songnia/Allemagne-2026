@@ -5,11 +5,10 @@ import { landingColors as m3Colors, germanFlag } from '@/theme/m3-theme';
 import { useAppStore } from '@/store/useAppStore';
 
 interface HeroSectionProps {
-  onCheckEligibility: () => void;
   onAccessPlatform: () => void;
 }
 
-function HeroSection({ onCheckEligibility, onAccessPlatform }: HeroSectionProps) {
+function HeroSection({ onAccessPlatform }: HeroSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [count, setCount] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);

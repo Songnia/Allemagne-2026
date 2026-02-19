@@ -47,7 +47,7 @@ function LandingPage() {
       style={{ backgroundColor: m3Colors.surface }}
     >
       {/* Hero Section */}
-      <HeroSection onCheckEligibility={openEligibilityModal} onAccessPlatform={openAuthModal} />
+      <HeroSection onAccessPlatform={openAuthModal} />
 
       {/* Problem/Agitation Section */}
       <ProblemSection />
