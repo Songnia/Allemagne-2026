@@ -12,9 +12,17 @@ import {
 import { landingColors as m3Colors, germanFlag } from '@/theme/m3-theme';
 import { useAppStore } from '@/store/useAppStore';
 
+import img1 from '@/assets/images/1.png';
+import img2 from '@/assets/images/2.png';
+import img3 from '@/assets/images/3.png';
+import img4 from '@/assets/images/4.png';
+import img5 from '@/assets/images/5.png';
+import img6 from '@/assets/images/6.png';
+
 const benefits = [
   {
     icon: Work,
+    image: img1,
     title: 'Accès au marché du travail',
     description: 'Cherchez un emploi sur place pendant 18 mois avec la Chancenkarte. Pas besoin d\'offre avant de partir.',
     color: m3Colors.primary,
@@ -22,6 +30,7 @@ const benefits = [
   },
   {
     icon: School,
+    image: img2,
     title: 'Formation reconnue',
     description: 'Vos diplômes peuvent être reconnus équivalents aux standards allemands. Processus simplifié pour les professions en pénurie.',
     color: germanFlag.goldDark,
@@ -29,6 +38,7 @@ const benefits = [
   },
   {
     icon: AccountBalance,
+    image: img3,
     title: 'Coût accessible',
     description: '€11,904 sur compte bloqué, libérés mensuellement. Ou exemption avec un contrat de travail.',
     color: m3Colors.primary,
@@ -36,6 +46,7 @@ const benefits = [
   },
   {
     icon: FamilyRestroom,
+    image: img4,
     title: 'Regroupement familial',
     description: 'Votre conjoint et enfants peuvent vous rejoindre. Le conjoint a le droit de travailler sans restriction.',
     color: germanFlag.goldDark,
@@ -43,6 +54,7 @@ const benefits = [
   },
   {
     icon: Language,
+    image: img5,
     title: 'Niveau de langue flexible',
     description: 'A1 suffit pour certains profils. B1 ou B2 augmente vos points mais n\'est pas obligatoire partout.',
     color: m3Colors.primary,
@@ -50,6 +62,7 @@ const benefits = [
   },
   {
     icon: Timer,
+    image: img6,
     title: 'Voie rapide vers le permanent',
     description: 'Après 4 ans avec la Chancenkarte (dont 2 en emploi qualifié), vous pouvez obtenir le permis de séjour permanent.',
     color: germanFlag.goldDark,
@@ -159,59 +172,104 @@ function SolutionSection() {
               key={index}
               elevation={0}
               sx={{
-                p: 3,
                 backgroundColor: m3Colors.surfaceContainerLow,
-                borderRadius: '12px',
+                borderRadius: '16px',
                 border: `1px solid ${m3Colors.outlineVariant}`,
+                position: 'relative',
+                overflow: 'hidden',
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-                transition: `all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) ${index * 0.1}s`,
+                transition: `all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) ${index * 0.1}s`,
                 '&:hover': {
-                  boxShadow: '0px 4px 8px 3px rgba(0, 0, 0, 0.15)',
-                  transform: 'translateY(-4px)',
+                  boxShadow: '0px 16px 32px -4px rgba(0, 0, 0, 0.2)',
+                  transform: 'translateY(-8px)',
                   borderColor: benefit.color,
+                  '& .benefit-image': {
+                    transform: 'scale(1.05)',
+                  },
+                  '& .benefit-icon-badge': {
+                    transform: 'scale(1.1)',
+                  },
                 },
               }}
             >
-              {/* Icon */}
+              {/* Image en haut */}
               <Box
                 sx={{
-                  width: 56,
-                  height: 56,
-                  borderRadius: '12px',
-                  backgroundColor: benefit.bgColor,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mb: 2,
+                  position: 'relative',
+                  height: 200,
+                  overflow: 'hidden',
                 }}
               >
-                <benefit.icon sx={{ color: benefit.color, fontSize: 28 }} />
+                <Box
+                  component="img"
+                  className="benefit-image"
+                  src={benefit.image}
+                  alt={benefit.title}
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                />
+                {/* Overlay gradient */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: '60%',
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%)',
+                  }}
+                />
+                {/* Badge icône */}
+                <Box
+                  className="benefit-icon-badge"
+                  sx={{
+                    position: 'absolute',
+                    top: 12,
+                    right: 12,
+                    width: 44,
+                    height: 44,
+                    borderRadius: '12px',
+                    backgroundColor: benefit.bgColor,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                    transition: 'transform 0.3s ease',
+                  }}
+                >
+                  <benefit.icon sx={{ color: benefit.color, fontSize: 22 }} />
+                </Box>
               </Box>
 
-              {/* Title */}
-              <Typography
-                variant="h6"
-                sx={{
-                  fontSize: '18px',
-                  fontWeight: 600,
-                  color: m3Colors.onSurface,
-                  mb: 1.5,
-                }}
-              >
-                {benefit.title}
-              </Typography>
-
-              {/* Description */}
-              <Typography
-                variant="body2"
-                sx={{
-                  color: m3Colors.onSurfaceVariant,
-                  lineHeight: 1.6,
-                }}
-              >
-                {benefit.description}
-              </Typography>
+              {/* Contenu texte */}
+              <Box sx={{ p: 3 }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontSize: '18px',
+                    fontWeight: 700,
+                    color: m3Colors.onSurface,
+                    mb: 1,
+                  }}
+                >
+                  {benefit.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: m3Colors.onSurfaceVariant,
+                    lineHeight: 1.7,
+                    fontSize: '14px',
+                  }}
+                >
+                  {benefit.description}
+                </Typography>
+              </Box>
             </Paper>
           ))}
         </Box>
