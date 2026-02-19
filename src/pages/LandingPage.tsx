@@ -21,9 +21,9 @@ import PaymentModal from '@/components/modals/PaymentModal';
 import StickyBottomBar from '@/components/common/StickyBottomBar';
 
 function LandingPage() {
-  const { 
-    ui, 
-    openEligibilityModal, 
+  const {
+    ui,
+    openEligibilityModal,
     closeEligibilityModal,
     openAuthModal,
     closeAuthModal,
@@ -33,7 +33,7 @@ function LandingPage() {
   useEffect(() => {
     // Update page title
     document.title = 'ALLEMAGNE2026 | Votre passeport pour l\'Allemagne';
-    
+
     // Add meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -42,12 +42,12 @@ function LandingPage() {
   }, []);
 
   return (
-    <div 
+    <div
       className="min-h-screen"
       style={{ backgroundColor: m3Colors.surface }}
     >
       {/* Hero Section */}
-      <HeroSection onCheckEligibility={openEligibilityModal} />
+      <HeroSection onCheckEligibility={openEligibilityModal} onAccessPlatform={openAuthModal} />
 
       {/* Problem/Agitation Section */}
       <ProblemSection />
@@ -71,23 +71,23 @@ function LandingPage() {
       <Footer />
 
       {/* Sticky Bottom Bar */}
-      <StickyBottomBar 
+      <StickyBottomBar
         onCheckEligibility={openEligibilityModal}
         onAccessPlatform={openAuthModal}
       />
 
       {/* Modals */}
-      <EligibilityModal 
-        open={ui.isEligibilityModalOpen} 
+      <EligibilityModal
+        open={ui.isEligibilityModalOpen}
         onClose={closeEligibilityModal}
         onContinue={openAuthModal}
       />
-      
-      <AuthModal 
+
+      <AuthModal
         open={ui.isAuthModalOpen}
         onClose={closeAuthModal}
       />
-      
+
       <PaymentModal
         open={ui.isPaymentModalOpen}
         onClose={closePaymentModal}

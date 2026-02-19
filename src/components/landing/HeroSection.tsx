@@ -6,9 +6,10 @@ import { useAppStore } from '@/store/useAppStore';
 
 interface HeroSectionProps {
   onCheckEligibility: () => void;
+  onAccessPlatform: () => void;
 }
 
-function HeroSection({ onCheckEligibility }: HeroSectionProps) {
+function HeroSection({ onCheckEligibility, onAccessPlatform }: HeroSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [count, setCount] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -264,7 +265,7 @@ function HeroSection({ onCheckEligibility }: HeroSectionProps) {
               {!isAuthenticated && (
                 <Button
                   variant="outlined"
-                  onClick={onCheckEligibility}
+                  onClick={onAccessPlatform}
                   size="large"
                   sx={{
                     px: 4,
@@ -281,7 +282,7 @@ function HeroSection({ onCheckEligibility }: HeroSectionProps) {
                     },
                   }}
                 >
-                  Vérifier mon éligibilité
+                  se connecter
                 </Button>
               )}
             </Box>
