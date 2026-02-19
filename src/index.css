@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Material Design 3 Color Palette - Seed: #0D7377 */
+    --m3-primary: #006A6A;
+    --m3-on-primary: #FFFFFF;
+    --m3-primary-container: #6FF7F6;
+    --m3-on-primary-container: #002020;
+    --m3-secondary: #4A6363;
+    --m3-on-secondary: #FFFFFF;
+    --m3-secondary-container: #CCE8E7;
+    --m3-on-secondary-container: #041F1F;
+    --m3-tertiary: #4D5F7C;
+    --m3-on-tertiary: #FFFFFF;
+    --m3-tertiary-container: #D4E3FF;
+    --m3-on-tertiary-container: #061C36;
+    --m3-error: #BA1A1A;
+    --m3-on-error: #FFFFFF;
+    --m3-error-container: #FFDAD6;
+    --m3-on-error-container: #410002;
+    --m3-surface: #FAFDFC;
+    --m3-on-surface: #191C1C;
+    --m3-surface-variant: #DAE5E4;
+    --m3-on-surface-variant: #3F4949;
+    --m3-outline: #6F7979;
+    --m3-outline-variant: #BEC9C8;
+    --m3-shadow: #000000;
+    --m3-scrim: #000000;
+    --m3-inverse-surface: #2D3231;
+    --m3-inverse-on-surface: #EFF1F0;
+    --m3-inverse-primary: #4CDADB;
+    --m3-surface-tint: #006A6A;
+    
+    /* Elevation surfaces */
+    --m3-surface-container-highest: #E3E3E3;
+    --m3-surface-container-high: #E9E9E9;
+    --m3-surface-container: #EEEEEE;
+    --m3-surface-container-low: #F4F4F4;
+    --m3-surface-container-lowest: #FFFFFF;
+    --m3-surface-bright: #F8F9F9;
+    --m3-surface-dim: #D8DAD9;
+
+    /* shadcn/ui variables mapped to M3 */
+    --background: 165 33% 98%;
+    --foreground: 180 6% 11%;
+    --card: 165 20% 90%;
+    --card-foreground: 180 6% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 180 6% 11%;
+    --primary: 180 100% 21%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 180 14% 34%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 165 20% 90%;
+    --muted-foreground: 180 6% 27%;
+    --accent: 180 14% 34%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 74% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 180 5% 46%;
+    --input: 180 5% 46%;
+    --ring: 180 100% 21%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[var(--m3-surface)] text-[var(--m3-on-surface)] antialiased;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+  }
+}
+
+/* M3 Typography Classes */
+@layer components {
+  .m3-display-large {
+    font-size: 57px;
+    font-weight: 700;
+    line-height: 64px;
+    letter-spacing: -0.25px;
+  }
+  
+  .m3-display-medium {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 52px;
+    letter-spacing: 0px;
+  }
+  
+  .m3-display-small {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0px;
+  }
+  
+  .m3-headline-large {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 0px;
+  }
+  
+  .m3-headline-medium {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0px;
+  }
+  
+  .m3-headline-small {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0px;
+  }
+  
+  .m3-title-large {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0px;
+  }
+  
+  .m3-title-medium {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+  }
+  
+  .m3-title-small {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+  }
+  
+  .m3-body-large {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+  }
+  
+  .m3-body-medium {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+  }
+  
+  .m3-body-small {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+  }
+  
+  .m3-label-large {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+  }
+  
+  .m3-label-medium {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+  }
+  
+  .m3-label-small {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* M3 Shape/Corner Radius */
+@layer utilities {
+  .m3-shape-small {
+    border-radius: 4px;
+  }
+  
+  .m3-shape-medium {
+    border-radius: 12px;
+  }
+  
+  .m3-shape-large {
+    border-radius: 16px;
+  }
+  
+  .m3-shape-extra-large {
+    border-radius: 28px;
+  }
+}
+
+/* M3 Elevation Shadows */
+@layer utilities {
+  .m3-elevation-0 {
+    box-shadow: none;
+  }
+  
+  .m3-elevation-1 {
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  }
+  
+  .m3-elevation-2 {
+    box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  }
+  
+  .m3-elevation-3 {
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+  
+  .m3-elevation-4 {
+    box-shadow: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+  
+  .m3-elevation-5 {
+    box-shadow: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* M3 Motion/Animation */
+@layer utilities {
+  .m3-transition {
+    transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .m3-transition-fast {
+    transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .m3-transition-slow {
+    transition: all 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--m3-surface-variant);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--m3-outline);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--m3-on-surface-variant);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--m3-primary);
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+}
