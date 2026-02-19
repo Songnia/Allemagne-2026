@@ -10,7 +10,6 @@ import {
   TextField,
   InputAdornment,
   Alert,
-  Chip,
 } from '@mui/material';
 import { ArrowForward, Phone, Lock } from '@mui/icons-material';
 import { m3Colors } from '@/theme/m3-theme';
@@ -23,7 +22,7 @@ interface AuthModalProps {
 
 // Codes fixes prédéfinis
 const VALID_CODES: Record<string, { tier: 'free' | 'simple' | 'complete'; label: string }> = {
-  '06200': { tier: 'free', label: 'Gratuit' },
+  // '06200': { tier: 'free', label: 'Gratuit' },
   '06201': { tier: 'simple', label: 'Simple (2,000 FCFA)' },
   '06202': { tier: 'complete', label: 'Complete (10,000 FCFA)' },
 };
@@ -48,7 +47,7 @@ function AuthModal({ open, onClose }: AuthModalProps) {
 
   const handleCodeSubmit = async () => {
     if (!VALID_CODES[fixedCode]) {
-      setError('Code invalide. Les codes valides sont : 06200, 06201, 06202');
+      setError('Code invalide. Veuillez vérifier votre code.');
       return;
     }
 
@@ -192,7 +191,7 @@ function AuthModal({ open, onClose }: AuthModalProps) {
               }}
             />
 
-            {/* Info sur les codes */}
+            {/* Info sur les codes masquée
             <Box sx={{ mt: 3, p: 2, backgroundColor: m3Colors.surfaceContainer, borderRadius: '8px' }}>
               <Typography variant="caption" sx={{ color: m3Colors.onSurfaceVariant, display: 'block', mb: 1 }}>
                 Codes disponibles :
@@ -203,18 +202,9 @@ function AuthModal({ open, onClose }: AuthModalProps) {
                   label="06200 = Gratuit"
                   sx={{ backgroundColor: m3Colors.surfaceContainerHighest, fontSize: '11px' }}
                 />
-                {/*<Chip 
-                  size="small" 
-                  label="06201 = Simple" 
-                  sx={{ backgroundColor: m3Colors.tertiaryContainer, fontSize: '11px' }} 
-                />
-                <Chip 
-                  size="small" 
-                  label="06202 = Complete" 
-                  sx={{ backgroundColor: m3Colors.primaryContainer, fontSize: '11px' }} 
-                />*/}
               </Box>
             </Box>
+            */}
 
             <Alert
               severity="info"

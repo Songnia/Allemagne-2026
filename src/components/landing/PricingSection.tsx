@@ -100,7 +100,7 @@ function PricingSection() {
             alignItems: 'stretch',
           }}
         >
-          {pricingTiers.map((tier, index) => (
+          {pricingTiers.filter(t => t.price > 0).map((tier, index) => (
             <Paper
               key={tier.id}
               elevation={0}
